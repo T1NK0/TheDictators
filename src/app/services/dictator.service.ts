@@ -24,6 +24,7 @@ export class DictatorService {
   }
 
   deleteDictator(index:any) {
+    console.log(index);
     return this.http.delete<Dictator[]>('http://localhost:3000/deleteDictator', index);
   }
 }

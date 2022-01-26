@@ -9,14 +9,19 @@
             <input class="form-control" [class.is-invalid]="dictatorForm.get('firstname')?.invalid && dictatorForm.get('firstname')?.touched" type="text" name="firstname" id="firstname" placeholder="Firstname" formControlName="firstname"/>
           
             <div *ngIf="dictatorForm.get('firstname')?.invalid && 
-            dictatorForm.get('firstname')?.touched">
-            <small *ngIf="dictatorForm.get('firstname')?.errors?.['required']" class="text-danger">Firstname is required</small>
-     </div>  
+              dictatorForm.get('firstname')?.touched">
+              <small *ngIf="dictatorForm.get('firstname')?.errors?.['required']" class="text-danger">Firstname is required</small>
+            </div>  
           </div>
 
           <div class="form-group col-md-6 col-lg-6 mb-2">
             <label for="lastname">Lastname</label>
             <input class="form-control" [class.is-invalid]="dictatorForm.get('lastname')?.invalid && dictatorForm.get('lastname')?.touched" type="text" name="lastname" id="lastname" placeholder="Lastname" formControlName="lastname"/>
+            
+            <div *ngIf="dictatorForm.get('lastname')?.invalid && 
+              dictatorForm.get('lastname')?.touched">
+              <small *ngIf="dictatorForm.get('lastname')?.errors?.['required']" class="text-danger">Lastname is required</small>
+            </div> 
           </div>
         </div>
 
@@ -24,6 +29,11 @@
           <div class="form-group col-md-6 col-lg-6 mb-2">
             <label for="birthYear">Birthyear</label>
             <input class="form-control" [class.is-invalid]="dictatorForm.get('birthyear')?.invalid && dictatorForm.get('birthyear')?.touched" type="text" name="birthyear" id="birthYear" placeholder="Birthyear" formControlName="birthyear"/>
+            
+            <div *ngIf="dictatorForm.get('birthyear')?.invalid && 
+              dictatorForm.get('birthyear')?.touched">
+              <small *ngIf="dictatorForm.get('birthyear')?.errors?.['required']" class="text-danger">Birthyear is required</small>
+            </div> 
           </div>
 
           <div class="form-group col-md-6 col-lg-6 mb-2">
@@ -36,6 +46,11 @@
         <div class="form-group col-md-12 col-lg-12 mb-2">
           <label for="description">Description</label>
           <textarea class="form-control" [class.is-invalid]="dictatorForm.get('description')?.invalid && dictatorForm.get('description')?.touched" type="text" name="description" id="description" placeholder="Description" formControlName="description" style="resize: none;"></textarea>
+          
+          <div *ngIf="dictatorForm.get('description')?.invalid && 
+            dictatorForm.get('description')?.touched">
+            <small *ngIf="dictatorForm.get('description')?.errors?.['required']" class="text-danger">Description is required</small>
+          </div> 
         </div>
 
         <div class="form-group">
