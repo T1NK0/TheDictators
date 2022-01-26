@@ -17,5 +17,8 @@ export class AppComponent {
   dictatorData = this.fb.group({
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
+    birthyear: ['', Validators.required],
+    deathyear: ['',],
+    description: ['', Validators.required]
   });
 }
