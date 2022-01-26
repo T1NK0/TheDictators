@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Dictator } from './interfaces/dictators';
+import { CreationService } from './services/creation.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Dictator } from './interfaces/dictators';
 })
 export class AppComponent {
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private createService: CreationService) {
     
   } 
 
