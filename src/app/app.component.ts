@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Dictator } from './interfaces/dictators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TheDictators';
+
+  constructor(private fb: FormBuilder) {
+    
+  } 
+
+  dictatorData = this.fb.group({
+    firstname: ['', Validators.required],
+    lastname: ['', Validators.required],
+  });
 }
