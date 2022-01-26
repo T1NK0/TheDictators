@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Dictator } from './interfaces/dictators';
-import { CreationService } from './services/creation.service';
+import { DictatorService } from './services/dictator.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,28 @@ import { CreationService } from './services/creation.service';
 })
 export class AppComponent {
 
-  constructor(private fb: FormBuilder, private createService: CreationService) {
-    
+  dictators: Dictator[] = [];
+
+  constructor(private fb: FormBuilder, private dictatorService: DictatorService) {
   } 
 
-  dictatorData = this.fb.group({
+  ngOnInit(): void {
+    this.dictatorService.getDictators().subscribe((dictator:Dictator[] ) => {
+      next: this.dictators = dictator;
+    });
+  }
+
+  dictatorForm = this.fb.group({
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     birthyear: ['', Validators.required],
     deathyear: ['',],
     description: ['', Validators.required]
   });
+
+  onCreate() {
+    this.dictatorService.createDictator(this.dictatorForm.value).subscribe(() => {
+
+    });
+  }
 }

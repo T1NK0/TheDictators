@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { DictatorService } from './dictator.service';
 
-import { CreationService } from './creation.service';
-
-describe('CreationService', () => {
-  let service: CreationService;
+describe('DictatorService', () => {
+  let service: DictatorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CreationService);
+    service = TestBed.inject(DictatorService);
   });
 
   it('should be created', () => {
