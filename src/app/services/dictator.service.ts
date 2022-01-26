@@ -23,7 +23,7 @@ export class DictatorService {
     return this.http.get<Dictator[]>('http://localhost:3000/getDictator');
   }
 
-  deleteDictator() {
-
+  deleteDictator(index:any) {
+    return this.http.delete<Dictator[]>('http://localhost:3000/deleteDictator', index);
   }
 }

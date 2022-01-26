@@ -25,12 +25,21 @@ export class AppComponent {
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     birthyear: ['', Validators.required],
-    deathyear: ['',],
+    deathyear: [''],
     description: ['', Validators.required]
   });
 
   onCreate() {
     this.dictatorService.createDictator(this.dictatorForm.value).subscribe(() => {
+
+    });
+  }
+
+  onDelete(index:number) {
+    //Deletes from our local array
+    this.dictators.splice(index,1)
+
+    this.dictatorService.deleteDictator(index).subscribe(() => {
 
     });
   }
