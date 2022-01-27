@@ -10,10 +10,8 @@ export class DictatorService {
 
   constructor(private http: HttpClient) { }
 
-  createUrl: string = "http://localhost:3000/createDictator"
-
-  createDictator(dictatorData:Dictator) {
-    return this.http.post<Dictator>(this.createUrl, dictatorData);
+  createDictator(dictatorData:Dictator):Observable<Dictator> {
+    return this.http.post<Dictator>('http://localhost:3000/createDictator', dictatorData);
   }
 
   //Gets the dictators from our api array.
@@ -25,6 +23,7 @@ export class DictatorService {
 
   deleteDictator(index:any) {
     console.log(index);
+    //Gotta send the index as a json, else it can't read it.
     return this.http.delete<Dictator[]>('http://localhost:3000/deleteDictator', index);
   }
 }

@@ -11,6 +11,7 @@ import { DictatorService } from './services/dictator.service';
 export class AppComponent {
 
   dictators: Dictator[] = [];
+  dataloaded: boolean = false;
 
   constructor(private fb: FormBuilder, private dictatorService: DictatorService) {
   } 
@@ -18,6 +19,10 @@ export class AppComponent {
   ngOnInit(): void {
     this.dictatorService.getDictators().subscribe((dictator:Dictator[] ) => {
       next: this.dictators = dictator;
+      complete: if (dictator.length>0) {
+        this.dataloaded = true
+      } 
+      this.dataloaded = true;
     });
   }
 
@@ -30,15 +35,12 @@ export class AppComponent {
   });
 
   onCreate() {
-    this.dictatorService.createDictator(this.dictatorForm.value).subscribe(() => {
-
-    });
+    this.dictatorService.createDictator(this.dictatorForm.value).subscribe(dictatorValue =>  this.dictatorForm.value);
   }
 
   onDelete(index:number) {
     //Deletes from our local array
     this.dictators.splice(index,1)
-
     this.dictatorService.deleteDictator(index).subscribe(() => {
 
     });

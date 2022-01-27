@@ -1,7 +1,8 @@
 export interface Dictator{
+    id: number
     firstname: string;
     lastname: string;
-    birthyear: string;
-    deathyear: string;
+    birthyear: number;
+    deathyear: number;
     description: string;
 }
