@@ -24,6 +24,6 @@ export class DictatorService {
   deleteDictator(index:any) {
     console.log(index);
     //Gotta send the index as a json, else it can't read it.
-    return this.http.delete<Dictator[]>('http://localhost:3000/deleteDictator', index);
+    return this.http.delete<Dictator[]>(`http://localhost:3000/deleteDictator/${index}`, index);
   }
 }
