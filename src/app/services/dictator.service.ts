@@ -17,13 +17,12 @@ export class DictatorService {
   //Gets the dictators from our api array.
   //Sets observable, with the interface of director.
   getDictators(): Observable<Dictator[]>{
-    //looks at the http service get, with the interface of dictator, looking at our api with the endpoint of /getDictator.
     return this.http.get<Dictator[]>('http://localhost:3000/getDictator');
   }
 
   deleteDictator(index:any) {
-    console.log(index);
-    //Gotta send the index as a json, else it can't read it.
+    //calls our service with the index from our button click, says we gotta delete of the 
     return this.http.delete<Dictator[]>(`http://localhost:3000/deleteDictator/${index}`, index);
+    console.log(index);
   }
 }
